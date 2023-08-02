@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_scope/scoped_state.dart';
+import 'package:scope_injector/scoped_state.dart';
 
 extension EntryPointContext on BuildContext {
   T inject<T>() {

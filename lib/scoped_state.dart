@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_scope/provider.dart';
-import 'package:flutter_scope/subscription_handler.dart';
+import 'package:scope_injector/provider.dart';
+import 'package:scope_injector/subscription_handler.dart';
 
 abstract class ScopedState<T extends StatefulWidget> extends State<T>
     implements SubscriptionHandler {
