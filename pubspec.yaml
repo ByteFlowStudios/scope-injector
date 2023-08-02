@@ -1,5 +1,5 @@
 name: flutter_scope
-description: A new Flutter package project.
+description: A Dependency Injection library, that provides a simple way to manage your dependencies.
 version: 0.0.1
 homepage:
 
