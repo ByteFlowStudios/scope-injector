@@ -1,9 +1,10 @@
 ## Features
 
-- [x] Dependency injection with singletons and factories
 - [x] Scope system
-- [x] Dependency injection with qualifiers
+- [x] Qualifier system
 - [x] Module System
+- [x] Factory system for non singleton dependencies
+- [x] Dependency inversion principle
 
 ## Getting started
 
@@ -13,7 +14,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  scope_injector: ^0.0.1
+  scope_injector: ^0.0.4
 ```
 
 ## Usage
