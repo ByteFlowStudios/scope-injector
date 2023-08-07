@@ -1,6 +1,6 @@
 name: scope_injector
 description: A Dependency Injection library, that provides a simple way to manage your dependencies.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/ByteFlowStudios/flutter-scope
 
 environment:

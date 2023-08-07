@@ -14,7 +14,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  scope_injector: ^0.0.4
+  scope_injector: ^1.0.1
 ```
 
 ## Usage
@@ -49,10 +49,10 @@ class ScopedWidget extends StatefulWidget {
   const ExampleWidget({Key? key}) : super(key: key);
 
   @override
-  State<ExampleWidget> createState() => _ExampleWidgetState();
+  State<ScopedWidget> createState() => _ScopedWidgetState();
 }
 
-class _ExampleWidgetState extends ScopedState<ExampleWidget> {
+class _ScopedWidgetState extends ScopedState<ScopedWidget> {
 
   // inject your dependencies here
   late final ProjectRepository projectRepository = inject();
@@ -92,6 +92,4 @@ class _ChildWidgetState extends State<ChildWidget> {
   }
 }
 ```
-
-## Additional information
 

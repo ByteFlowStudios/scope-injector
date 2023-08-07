@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:scope_injector/flutter_scope.dart';
 
 abstract class AbstractProvider<T> {
   T getInstance({String? qualifier});
@@ -27,8 +28,15 @@ class QualifierProvider<T> extends AbstractProvider<T> {
       if (kDebugMode) {
         print("New instance of $T with \"$qualifier\" qualifier");
       }
-      return _builders[qualifier]?.call() ??
-          (throw Exception("No builder for $T with \"$qualifier\" qualifier"));
+      final instance = _builders[qualifier]?.call();
+      if (instance == null) {
+        throw Exception("No builder for $T with \"$qualifier\" qualifier");
+      } else {
+        if (instance is Initializable) {
+          instance.initialize();
+        }
+        return instance;
+      }
     }
     T? instance = _instances[qualifier];
     if (instance != null) {
@@ -37,10 +45,12 @@ class QualifierProvider<T> extends AbstractProvider<T> {
       T? provided = _builders[qualifier]?.call();
       if (provided == null) {
         throw Exception("No builder for $T with \"$qualifier\" qualifier");
+      } else if (provided is Initializable) {
+        provided.initialize();
       }
       _instances[qualifier] = provided;
       if (kDebugMode) {
-        print("Initialized $T with \"$qualifier\" qualifier");
+        print("Created $T with \"$qualifier\" qualifier");
       }
       return provided;
     }
